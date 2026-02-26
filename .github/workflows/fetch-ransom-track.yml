@@ -1,0 +1,72 @@
+name: Fetch Ransom Track Data (Hourly - Sanitized)
+
+permissions:
+  contents: write
+
+on:
+  schedule:
+    - cron: '0 * * * *'
+  workflow_dispatch:
+
+jobs:
+  fetch-ransom-track:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Install jq
+      run: sudo apt-get update && sudo apt-get install -y jq
+
+    - name: Create data directory
+      run: mkdir -p ransom-track
+
+    - name: Fetch /stats
+      run: |
+        curl -s -H "X-API-KEY: ${{ secrets.API_TOKEN_RANSOM }}" \
+          https://api-pro.ransomware.live/stats | jq 'del(.client)' > ransom-track/stats.json
+
+    - name: Fetch /press/all
+      run: |
+        curl -s -H "X-API-KEY: ${{ secrets.API_TOKEN_RANSOM }}" \
+          https://api-pro.ransomware.live/press/all | jq 'del(.client)' > ransom-track/press_all.json
+
+    - name: Fetch /listsectors
+      run: |
+        curl -s -H "X-API-KEY: ${{ secrets.API_TOKEN_RANSOM }}" \
+          https://api-pro.ransomware.live/listsectors | jq 'del(.client)' > ransom-track/listsectors.json
+
+    - name: Fetch /iocs
+      run: |
+        curl -s -H "X-API-KEY: ${{ secrets.API_TOKEN_RANSOM }}" \
+          https://api-pro.ransomware.live/iocs | jq 'del(.client)' > ransom-track/iocs.json
+
+    - name: Fetch /yara
+      run: |
+        curl -s -H "X-API-KEY: ${{ secrets.API_TOKEN_RANSOM }}" \
+          https://api-pro.ransomware.live/yara | jq 'del(.client)' > ransom-track/yara.json
+
+    - name: Fetch /negotiations
+      run: |
+        curl -s -H "X-API-KEY: ${{ secrets.API_TOKEN_RANSOM }}" \
+          https://api-pro.ransomware.live/negotiations | jq 'del(.client)' > ransom-track/negotiations.json
+          
+    - name: Fetch /ransomnotes
+      run: |
+        curl -s -H "X-API-KEY: ${{ secrets.API_TOKEN_RANSOM }}" \
+          https://api-pro.ransomware.live/ransomnotes | jq 'del(.client)' > ransom-track/ransomnotes.json
+
+    - name: Fetch victims.json (public)
+      run: curl -s https://data.ransomware.live/victims.json > ransom-track/victims.json
+
+    - name: Fetch groups.json (public)
+      run: curl -s https://data.ransomware.live/groups.json > ransom-track/groups.json
+
+    - name: Commit and push if changed
+      run: |
+        git config user.name "github-actions"
+        git config user.email "actions@github.com"
+        git add ransom-track/
+        git diff --cached --quiet || git commit -m "Auto-update ransom-track data (client key removed)"
+        git push
