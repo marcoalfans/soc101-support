@@ -471,7 +471,10 @@
         "thirdparties": 0,
         "infostealer_stats": {}
       },
-      "ransomware": null
+      "ransomware": {
+        "group": "dragonforce",
+        "permalink": "https://www.ransomware.live/id/Zmh3LW5ldWtvZWxsbi5kZUBkcmFnb25mb3JjZQ=="
+      }
     },
     {
       "date": "2026-03-20",
