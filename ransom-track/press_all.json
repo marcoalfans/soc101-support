@@ -4,8 +4,29 @@
     "month": null,
     "country": null
   },
-  "count": 3400,
+  "count": 3401,
   "results": [
+    {
+      "date": "2026-04-07",
+      "victim": "NAFCO",
+      "domain": "nafco.com.tw",
+      "country": "TW",
+      "summary": "Le 7 avril 2026, les systèmes d'information de National Aerospace Fasteners Corporation (NAFCO) ont été attaqués par des pirates informatiques. L'organisation a immédiatement activé ses mécanismes de défense et lancé une enquête pour contrer la cyberattaque. À ce jour, aucune fuite de données sensibles n'a été constatée et les opérations de l'entreprise ne subissent pas d'impact significatif.",
+      "title": "Today's Information",
+      "url": "https://emops.twse.com.tw/server-java/t05sr01_1_e?&isNew=Y&seq_no=1&spoke_time=93511&spoke_date=20260408&co_id=3004",
+      "added": "2026-04-08",
+      "infostealer": {
+        "update": "2026-04-02 15:06:48",
+        "employees": 0,
+        "users": 0,
+        "thirdparties_domain": 0,
+        "employees_url": 0,
+        "users_url": 0,
+        "thirdparties": 0,
+        "infostealer_stats": {}
+      },
+      "ransomware": null
+    },
     {
       "date": "2026-04-06",
       "victim": "Winona County",
