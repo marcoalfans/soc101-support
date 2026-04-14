@@ -15,7 +15,7 @@
     },
     {
       "sector": "Agriculture and Food Production",
-      "count": 524
+      "count": 525
     },
     {
       "sector": "Automotive",
@@ -27,7 +27,7 @@
     },
     {
       "sector": "Business Services",
-      "count": 2187
+      "count": 2188
     },
     {
       "sector": "Business Services, Technology",
@@ -55,7 +55,7 @@
     },
     {
       "sector": "Consumer Services",
-      "count": 429
+      "count": 430
     },
     {
       "sector": "Consumer services",
@@ -127,7 +127,7 @@
     },
     {
       "sector": "Healthcare",
-      "count": 1381
+      "count": 1386
     },
     {
       "sector": "Healthcare and Public Health",
@@ -167,11 +167,11 @@
     },
     {
       "sector": "Manufacturing",
-      "count": 2031
+      "count": 2034
     },
     {
       "sector": "Not Found",
-      "count": 4280
+      "count": 4284
     },
     {
       "sector": "Nuclear Reactors, Materials, and Waste",
@@ -183,7 +183,7 @@
     },
     {
       "sector": "Public Sector",
-      "count": 334
+      "count": 335
     },
     {
       "sector": "Real Estate",
@@ -211,7 +211,7 @@
     },
     {
       "sector": "Technology",
-      "count": 1989
+      "count": 1991
     },
     {
       "sector": "Technology, Not Found, Education",
